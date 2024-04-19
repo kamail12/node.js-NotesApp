@@ -35,15 +35,15 @@ module.exports = {
         const title = req.body.title
         const body = req.body.body
         let note;
-
+    
         try{
             note = new Note({title,body,})
             note = await note.save()
         }catch(error){
             return res.status(500).json({message: error.message})
         }
-
-        res.send(`Notatka została stworzona jej tytuł to ${title} a treść to ${body}`)
+    
+        res.status(201).json({ _id: note._id }); // Zwracamy _id notatki
     },
 
     updateNote: async function(req, res){

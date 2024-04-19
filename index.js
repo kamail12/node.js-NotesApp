@@ -3,6 +3,7 @@ const app = express()
 const {port} = require("./config")
 const apiRouter = require("./routes/api")
 const bodyParser = require("body-parser")
+const cors = require("cors")
 
 //db
 require("./db/mongoose");
@@ -10,6 +11,8 @@ require("./db/mongoose");
 //parsers
 app.use(bodyParser.json())
 
+//fix CORS
+app.use(cors())
 
 //routes
 app.use("/api", apiRouter)
