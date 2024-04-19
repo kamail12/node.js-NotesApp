@@ -18,4 +18,7 @@ router.put('/notes/:id', noteActions.updateNote)
 //usuwanie notatek
 router.delete('/notes/:id', noteActions.deleteNote)
 
+//Usuwanie wszystkich notatek
+router.delete('/notes', noteActions.deleteNoteAll)
+
 module.exports = router;

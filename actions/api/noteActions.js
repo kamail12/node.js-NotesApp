@@ -79,6 +79,15 @@ module.exports = {
         }catch(error){
             return res.status(500).json({message: error.message})
         }
+    },
+
+    deleteNoteAll: async function(req, res){
+        try{
+            await Note.deleteMany({})
+            res.send("Wszystkie notatki zostały usunięte")
+        }catch(error){
+            return res.status(500).json({message: error.message})
+        }
     }
 }
 
